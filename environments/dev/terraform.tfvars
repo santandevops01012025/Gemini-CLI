@@ -28,7 +28,7 @@ aks_clusters = {
     default_node_pool = {
       name       = "default"
       node_count = 2
-      vm_size    = "Standard_DS2_v2"
+      vm_size    = "Standard_DC2as_v5"
     }
     network_profile = {
       network_plugin = "azure"
