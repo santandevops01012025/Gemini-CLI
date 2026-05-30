@@ -1,5 +1,5 @@
 resource_groups = {
-  "dev-rg" = {
+  "santandev-rg" = {
     location = "East US"
     tags = {
       environment = "dev"
@@ -9,7 +9,7 @@ resource_groups = {
 }
 
 vnets = {
-  "dev-vnet" = {
+  "santandev-vnet" = {
     address_space = ["10.0.0.0/16"]
     subnets = {
       "aks-subnet" = {
@@ -23,10 +23,10 @@ vnets = {
 }
 
 aks_clusters = {
-  "dev-aks" = {
+  "santandev-aks" = {
     dns_prefix = "devaks"
     default_node_pool = {
-      name       = "default"
+      name       = "santandefault"
       node_count = 2
       vm_size    = "Standard_DS2_v2"
     }
