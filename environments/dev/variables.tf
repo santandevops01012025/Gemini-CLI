@@ -24,8 +24,11 @@ variable "aks_clusters" {
       vm_size    = string
     })
     network_profile = optional(object({
-      network_plugin = string
-      network_policy = optional(string)
+      network_plugin     = string
+      network_policy     = optional(string)
+      service_cidr       = optional(string)
+      dns_service_ip     = optional(string)
+      docker_bridge_cidr = optional(string)
     }))
     tags = optional(map(string), {})
   }))
