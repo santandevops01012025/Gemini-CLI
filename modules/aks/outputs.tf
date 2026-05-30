@@ -3,6 +3,6 @@ output "aks_ids" {
 }
 
 output "aks_kube_configs" {
-  value = { for k, v in azurerm_kubernetes_cluster.aks : k => v.kube_config_raw }
+  value     = { for k, v in azurerm_kubernetes_cluster.aks : k => v.kube_config_raw }
   sensitive = true
 }

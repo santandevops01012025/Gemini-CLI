@@ -5,11 +5,11 @@ variable "aks_clusters" {
     location            = string
     dns_prefix          = string
     kubernetes_version  = optional(string)
-    
+
     default_node_pool = object({
-      name       = string
-      node_count = number
-      vm_size    = string
+      name           = string
+      node_count     = number
+      vm_size        = string
       vnet_subnet_id = optional(string)
     })
 

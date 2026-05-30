@@ -8,9 +8,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
   kubernetes_version  = each.value.kubernetes_version
 
   default_node_pool {
-    name       = each.value.default_node_pool.name
-    node_count = each.value.default_node_pool.node_count
-    vm_size    = each.value.default_node_pool.vm_size
+    name           = each.value.default_node_pool.name
+    node_count     = each.value.default_node_pool.node_count
+    vm_size        = each.value.default_node_pool.vm_size
     vnet_subnet_id = each.value.default_node_pool.vnet_subnet_id
   }
 

@@ -27,7 +27,7 @@ module "aks" {
       resource_group_name = module.resource_group.resource_group_names["dev-rg"]
       location            = module.resource_group.resource_group_locations["dev-rg"]
       identity_type       = "SystemAssigned"
-      
+
       default_node_pool = merge(v.default_node_pool, {
         vnet_subnet_id = module.network.subnet_ids["dev-vnet-aks-subnet"]
       })
