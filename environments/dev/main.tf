@@ -11,8 +11,8 @@ module "network" {
     for k, v in var.vnets : k => merge(v, {
       # Assuming we use the first resource group created for simplicity, 
       # or we could map them specifically. For this example, I'll match by name.
-      resource_group_name = module.resource_group.resource_group_names["santandev-rg"]
-      location            = module.resource_group.resource_group_locations["santandev-rg"]
+      resource_group_name = module.resource_group.resource_group_names["santan1dev-rg"]
+      location            = module.resource_group.resource_group_locations["santan1dev-rg"]
     })
   }
 
