@@ -1,5 +1,5 @@
 resource_groups = {
-  "santan-new-dev-rg" = {
+  "santan-dev-rg-99" = {
     location = "East US"
     tags = {
       environment = "dev"
