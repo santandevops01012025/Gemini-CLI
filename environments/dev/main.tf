@@ -24,8 +24,8 @@ module "aks" {
 
   aks_clusters = {
     for k, v in var.aks_clusters : k => merge(v, {
-      resource_group_name = module.resource_group.resource_group_names["santandev-rg"]
-      location            = module.resource_group.resource_group_locations["santandev-rg"]
+      resource_group_name = module.resource_group.resource_group_names["santan1dev-rg"]
+      location            = module.resource_group.resource_group_locations["santan1dev-rg"]
       identity_type       = "SystemAssigned"
 
       default_node_pool = merge(v.default_node_pool, {
