@@ -1,5 +1,5 @@
 resource_groups = {
-  "santan1dev-rg" = {
+  "santan-new-dev-rg" = {
     location = "East US"
     tags = {
       environment = "dev"
@@ -26,7 +26,7 @@ aks_clusters = {
   "santandev-aks" = {
     dns_prefix = "devaks"
     default_node_pool = {
-      name       = "santandefault"
+      name       = "default"
       node_count = 2
       vm_size    = "Standard_DS2_v2"
     }

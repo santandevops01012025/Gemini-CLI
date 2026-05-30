@@ -4,15 +4,18 @@ module "resource_group" {
   resource_groups = var.resource_groups
 }
 
+locals {
+  # Pick the first resource group as a default for resources that don't specify one
+  default_rg_key = keys(var.resource_groups)[0]
+}
+
 module "network" {
   source = "../../modules/network"
 
   vnets = {
     for k, v in var.vnets : k => merge(v, {
-      # Assuming we use the first resource group created for simplicity, 
-      # or we could map them specifically. For this example, I'll match by name.
-      resource_group_name = module.resource_group.resource_group_names["santan1dev-rg"]
-      location            = module.resource_group.resource_group_locations["santan1dev-rg"]
+      resource_group_name = module.resource_group.resource_group_names[local.default_rg_key]
+      location            = module.resource_group.resource_group_locations[local.default_rg_key]
     })
   }
 
@@ -24,8 +27,8 @@ module "aks" {
 
   aks_clusters = {
     for k, v in var.aks_clusters : k => merge(v, {
-      resource_group_name = module.resource_group.resource_group_names["santan1dev-rg"]
-      location            = module.resource_group.resource_group_locations["santan1dev-rg"]
+      resource_group_name = module.resource_group.resource_group_names[local.default_rg_key]
+      location            = module.resource_group.resource_group_locations[local.default_rg_key]
       identity_type       = "SystemAssigned"
 
       default_node_pool = merge(v.default_node_pool, {

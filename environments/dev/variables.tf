@@ -29,4 +29,14 @@ variable "aks_clusters" {
     }))
     tags = optional(map(string), {})
   }))
+
+  validation {
+    condition = alltrue([
+      for cluster in var.aks_clusters :
+      length(cluster.default_node_pool.name) >= 1 &&
+      length(cluster.default_node_pool.name) <= 12 &&
+      can(regex("^[a-z][0-9a-z]*$", cluster.default_node_pool.name))
+    ])
+    error_message = "The default_node_pool.name must begin with a lowercase letter, contain only lowercase letters and numbers and be between 1 and 12 characters in length."
+  }
 }
