@@ -11,8 +11,8 @@ module "network" {
     for k, v in var.vnets : k => merge(v, {
       # Assuming we use the first resource group created for simplicity, 
       # or we could map them specifically. For this example, I'll match by name.
-      resource_group_name = module.resource_group.resource_group_names["dev-rg"]
-      location            = module.resource_group.resource_group_locations["dev-rg"]
+      resource_group_name = module.resource_group.resource_group_names["santandev-rg"]
+      location            = module.resource_group.resource_group_locations["santandev-rg"]
     })
   }
 
@@ -24,12 +24,12 @@ module "aks" {
 
   aks_clusters = {
     for k, v in var.aks_clusters : k => merge(v, {
-      resource_group_name = module.resource_group.resource_group_names["dev-rg"]
-      location            = module.resource_group.resource_group_locations["dev-rg"]
+      resource_group_name = module.resource_group.resource_group_names["santandev-rg"]
+      location            = module.resource_group.resource_group_locations["santandev-rg"]
       identity_type       = "SystemAssigned"
 
       default_node_pool = merge(v.default_node_pool, {
-        vnet_subnet_id = module.network.subnet_ids["dev-vnet-aks-subnet"]
+        vnet_subnet_id = module.network.subnet_ids["santandev-vnet-aks-subnet"]
       })
     })
   }
