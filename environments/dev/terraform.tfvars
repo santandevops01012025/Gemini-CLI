@@ -35,7 +35,6 @@ aks_clusters = {
       network_policy     = "azure"
       service_cidr       = "172.16.0.0/16"
       dns_service_ip     = "172.16.0.10"
-      docker_bridge_cidr = "172.17.0.1/16"
     }
     tags = {
       environment = "dev"
