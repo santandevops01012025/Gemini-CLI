@@ -34,3 +34,7 @@ terraform.rc
 
 # Exclude sensitive files
 .env
+
+# Terraform State Files
+.tfstate
+.tfstate.backup

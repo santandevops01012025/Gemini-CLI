@@ -32,7 +32,7 @@ module "aks" {
       identity_type       = "SystemAssigned"
 
       default_node_pool = merge(v.default_node_pool, {
-        vnet_subnet_id = module.network.subnet_ids["santandev-vnet-aks-subnet"]
+        vnet_subnet_id = module.network.subnet_ids["santan-dev-vnet-santan-aks-subnet"]
       })
     })
   }

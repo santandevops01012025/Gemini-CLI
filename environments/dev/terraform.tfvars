@@ -9,10 +9,10 @@ resource_groups = {
 }
 
 vnets = {
-  "santandev-vnet" = {
+  "santan-dev-vnet" = {
     address_space = ["10.0.0.0/16"]
     subnets = {
-      "aks-subnet" = {
+      "santan-aks-subnet" = {
         address_prefixes = ["10.0.1.0/24"]
       }
     }
@@ -23,10 +23,10 @@ vnets = {
 }
 
 aks_clusters = {
-  "santandev-aks" = {
-    dns_prefix = "devaks"
+  "santan-dev-aks" = {
+    dns_prefix = "santandevaks"
     default_node_pool = {
-      name       = "default"
+      name       = "santanpool"
       node_count = 2
       vm_size    = "Standard_DC2as_v5"
     }
